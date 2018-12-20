@@ -1,9 +1,11 @@
 function analyze {
+	echo $1
+	echo $2
 	if [[ $1 =~ $2 ]]
 	then
 		echo "You have guessed correctly!"
 		bob=0
-	elif [[ $1 -lt $2]]
+	elif [[ $1 -lt $2 ]]
 	then
 		echo "You guessed too low!"
 	elif [[ $1 -gt $2 ]]
@@ -15,7 +17,9 @@ function analyze {
 }
 
 bob=1
-set "filenum=ls -l | wc -l"
+filenum=0
+set "filenum=$(($filenum + (ls -l | wc -l)))"
+#set "filenum=$(($filenum-1))"
 
 while [[ $bob =~ 1 ]]
 do
