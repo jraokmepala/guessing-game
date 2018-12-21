@@ -17,8 +17,10 @@ function analyze {
 }
 
 bob=1
-filenum=0
-set "filenum=$(($filenum + (ls -l | wc -l)))"
+file_num=$(ls -1 --file-type | grep -v '/$' | wc -l)
+#filenum= ls -l | wc -l
+#filenum=0
+#set "filenum=$(($filenum + (ls -l | wc -l)))"
 #set "filenum=$(($filenum-1))"
 
 while [[ $bob =~ 1 ]]
