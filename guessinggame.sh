@@ -15,9 +15,7 @@ function analyze {
 }
 
 bob=1
-shopt -s nullglob
-filenum=(*)
-filenum=${#filenum[@]}
+filenum=$(($(ls -l | wc -l) - 1))
 
 while [[ $bob =~ 1 ]]
 do
